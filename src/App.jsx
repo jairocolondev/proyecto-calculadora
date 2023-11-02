@@ -1,4 +1,5 @@
 import imagenCalculadora from "./assets/imagenCalculadora.jpg";
+import Boton from "./components/Boton";
 import "./index.css";
 
 function App() {
@@ -8,7 +9,14 @@ function App() {
         <img src={imagenCalculadora} alt="Imagen Calculadora con React" />
       </div>
       <div className="contenedorCalculadora">
-        Aquí irán todos los elemetos de la calculadora
+        <div className="fila">
+          <Boton>1</Boton>
+          <Boton>+</Boton>
+        </div>
+        <div className="fila"></div>
+        <div className="fila"></div>
+        <div className="fila"></div>
+        <div className="fila"></div>
       </div>
     </div>
   );

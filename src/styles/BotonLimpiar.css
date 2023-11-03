@@ -1,0 +1,18 @@
+.botonLimpiar {
+  height: 80px;
+  font-size: 1.6em;
+  display: flex;
+  flex: 1;
+  background: #ac0246;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 45px;
+  cursor: pointer;
+}
+
+.botonLimpiar:hover {
+  background: #ebb000;
+}

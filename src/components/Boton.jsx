@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "../styles/Boton.css";
 
-function Boton(props) {
+const Boton = ({ children }) => {
   const esOperador = (valor) => {
     return isNaN(valor) && valor != "." && valor != "=";
   };
@@ -9,13 +9,13 @@ function Boton(props) {
   return (
     <div
       className={`botonContenedor ${
-        esOperador(props.children) ? "operador" : ""
+        esOperador(children) ? "operador" : ""
       }`.trimEnd()}
     >
-      {props.children}
+      {children}
     </div>
   );
-}
+};
 
 Boton.propTypes = {
   children: PropTypes.node.isRequired,

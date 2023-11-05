@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import imagenCalculadora from "./assets/imagenCalculadora.jpg";
 import Boton from "./components/Boton";
 import BotonLimpiar from "./components/BotonLimpiar";
@@ -8,9 +8,20 @@ import "./index.css";
 import CustomAlert from "./components/CustomAlert";
 
 function App() {
-  const [input, setInput] = useState("0");
+  const [input, setInput] = useState(() => {
+    // Obtener el valor guardado desde localStorage, si existe
+    const savedInput = localStorage.getItem("calculatorInput");
+    // Si hay algo guardado, lo devolvemos, si no, devolvemos un string vacío
+    return savedInput || "0";
+  });
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+
+  // Efecto para guardar el valor de 'input' en localStorage cada vez que cambia
+  useEffect(() => {
+    // Guardar el valor de 'input' en localStorage
+    localStorage.setItem("calculatorInput", input);
+  }, [input]); // Dependencias: el efecto se ejecutará cada vez que 'input' cambie
 
   const addInput = (value) => {
     if (value === "." && input.includes(".")) {

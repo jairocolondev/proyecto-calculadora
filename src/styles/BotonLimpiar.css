@@ -1,6 +1,6 @@
 .botonLimpiar {
   height: 80px;
-  font-size: 1.6em;
+  font-size: 2em;
   display: flex;
   flex: 1;
   background: #ac0246;
@@ -11,6 +11,7 @@
   border: 2px solid #ffffff;
   border-radius: 45px;
   cursor: pointer;
+  user-select: none;
 }
 
 .botonLimpiar:hover {

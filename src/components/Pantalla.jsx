@@ -6,7 +6,7 @@ const Pantalla = ({ input }) => {
 };
 
 Pantalla.propTypes = {
-  input: propTypes.string.isRequired,
+  input: propTypes.string,
 };
 
 export default Pantalla;

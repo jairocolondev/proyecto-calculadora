@@ -8,12 +8,19 @@ import "./index.css";
 import CustomAlert from "./components/CustomAlert";
 
 function App() {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState("0");
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
 
   const addInput = (value) => {
-    setInput(input + value);
+    if (value === "." && input.includes(".")) {
+      return;
+    }
+    if (input === "0" && value !== ".") {
+      setInput(value);
+    } else {
+      setInput(input + value);
+    }
   };
 
   const customAlert = (mensaje) => {
@@ -23,10 +30,11 @@ function App() {
 
   const calcularResultado = () => {
     try {
-      if (input) {
-        setInput(evaluate(input).toString());
-      } else {
+      if (!input || input === "0") {
         customAlert("Por favor ingrese valores para realizar los cálculos...");
+      } else {
+        const resultado = evaluate(input).toString();
+        setInput(resultado);
       }
     } catch (error) {
       customAlert("Error en la expresión matemática...");
@@ -35,6 +43,14 @@ function App() {
 
   const closeAlert = () => {
     setAlertVisible(false);
+  };
+
+  const eliminarUltimoCaracter = () => {
+    if (input.length === 1) {
+      setInput("0");
+    } else if (input.length > 1) {
+      setInput(input.slice(0, -1));
+    }
   };
 
   return (
@@ -75,9 +91,10 @@ function App() {
             />
           </div>
           <div className="fila">
-            <BotonLimpiar manejarLimpiar={() => setInput("")}>
+            <BotonLimpiar manejarLimpiar={() => setInput("0")}>
               Limpiar
             </BotonLimpiar>
+            <Boton manejarClic={eliminarUltimoCaracter}>Borrar</Boton>
           </div>
         </div>
       </div>

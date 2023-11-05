@@ -2,7 +2,7 @@
 
 Bienvenido al repositorio de la Calculadora Proyecto Jairo Colón, una aplicación web interactiva construida con React + Vite para realizar operaciones matemáticas de manera sencilla y eficiente.
 
-# [Ir al sitio](https://proyecto-calculadora-jairocolondev.vercel.app/?target=_'blank')
+# [Ir al sitio](https://proyecto-calculadora-jairocolondev.vercel.app/)
 
 ### Vista previa de la Calculadora
 ![image](https://github.com/jairocolondev/proyecto-calculadora/assets/83477127/676e13fd-bdf9-49d4-82f2-24fb9204bfd6)

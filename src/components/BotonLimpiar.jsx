@@ -1,12 +1,17 @@
 import PropTypes from "prop-types";
 import "../styles/BotonLimpiar.css";
 
-const BotonLimpiar = (props) => {
-  return <div className="botonLimpiar">{props.children}</div>;
+const BotonLimpiar = ({ children, manejarLimpiar }) => {
+  return (
+    <div className="botonLimpiar" onClick={() => manejarLimpiar(children)}>
+      {children}
+    </div>
+  );
 };
 
 BotonLimpiar.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+  manejarLimpiar: PropTypes.func,
 };
 
 export default BotonLimpiar;
